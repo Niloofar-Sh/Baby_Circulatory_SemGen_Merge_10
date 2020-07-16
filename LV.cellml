@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model xmlns="http://www.cellml.org/cellml/1.1#" xmlns:cmeta="http://www.cellml.org/metadata/1.0#" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqs="http://www.cellml.org/bqs/1.0#" xmlns:semsim="http://www.bhi.washington.edu/SemSim#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" name="LV" cmeta:id="metaid0">
+  <units name="m3_per_s2">
+    <unit exponent="-2.0" units="second" />
+    <unit exponent="3.0" units="meter" />
+  </units>
+  <units name="m3_per_s">
+    <unit exponent="-1.0" units="second" />
+    <unit exponent="3.0" units="meter" />
+  </units>
+  <component name="LV_output">
+    <variable cmeta:id="LV_output.t" name="t" units="second" />
+    <variable cmeta:id="LV_output.v_LV" name="v_LV" units="m3_per_s" />
+    <variable cmeta:id="LV_output.dv" initial_value="0" name="dv" units="m3_per_s2" />
+    <variable cmeta:id="LV_output.a0" initial_value="9.674e-05" name="a0" units="dimensionless" />
+    <variable cmeta:id="LV_output.a1" initial_value="0.0001364" name="a1" units="dimensionless" />
+    <variable cmeta:id="LV_output.b1" initial_value="0.0001125" name="b1" units="dimensionless" />
+    <variable cmeta:id="LV_output.a2" initial_value="3.011e-05" name="a2" units="dimensionless" />
+    <variable cmeta:id="LV_output.b2" initial_value="0.0001317" name="b2" units="dimensionless" />
+    <variable cmeta:id="LV_output.a3" initial_value="-3.025e-05" name="a3" units="dimensionless" />
+    <variable cmeta:id="LV_output.b3" initial_value="8.194e-05" name="b3" units="dimensionless" />
+    <variable cmeta:id="LV_output.a4" initial_value="-3.675e-05" name="a4" units="dimensionless" />
+    <variable cmeta:id="LV_output.b4" initial_value="3.466e-05" name="b4" units="dimensionless" />
+    <variable cmeta:id="LV_output.a5" initial_value="-2.669e-05" name="a5" units="dimensionless" />
+    <variable cmeta:id="LV_output.b5" initial_value="1.016e-05" name="b5" units="dimensionless" />
+    <variable cmeta:id="LV_output.a6" initial_value="-1.509e-05" name="a6" units="dimensionless" />
+    <variable cmeta:id="LV_output.b6" initial_value="-1.615e-06" name="b6" units="dimensionless" />
+    <variable cmeta:id="LV_output.a7" initial_value="-4.731e-06" name="a7" units="dimensionless" />
+    <variable cmeta:id="LV_output.b7" initial_value="-4.048e-06" name="b7" units="dimensionless" />
+    <variable cmeta:id="LV_output.a8" initial_value="-2.427e-07" name="a8" units="dimensionless" />
+    <variable cmeta:id="LV_output.b8" initial_value="-1.448e-06" name="b8" units="dimensionless" />
+    <variable cmeta:id="LV_output.w" initial_value="6.273" name="w" units="dimensionless" />
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <apply>
+        <eq />
+        <ci>v_LV</ci>
+        <apply>
+          <plus />
+          <ci>a0</ci>
+          <apply>
+            <times />
+            <ci>a1</ci>
+            <apply>
+              <cos />
+              <apply>
+                <times />
+                <ci>t</ci>
+                <ci>w</ci>
+              </apply>
+            </apply>
+          </apply>
+          <apply>
+            <times />
+            <ci>b1</ci>
+            <apply>
+              <sin />
+              <apply>
+                <times />
+                <ci>t</ci>
+                <ci>w</ci>
+              </apply>
+            </apply>
+          </apply>
+          <apply>
+            <times />
+            <ci>a2</ci>
+            <apply>
+              <cos />
+              <apply>
+                <times />
+                <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">2</cn>
+                <ci>t</ci>
+                <ci>w</ci>
+              </apply>
+            </apply>
+          </apply>
+          <apply>
+            <times />
+            <ci>b2</ci>
+            <apply>
+              <sin />
+              <apply>
+                <times />
+                <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">2</cn>
+                <ci>t</ci>
+                <ci>w</ci>
+              </apply>
+            </apply>
+          </apply>
+          <apply>
+            <times />
+            <ci>a3</ci>
+            <apply>
+              <cos />
+              <apply>
+                <times />
+                <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">3</cn>
+                <ci>t</ci>
+                <ci>w</ci>
+              </apply>
+            </apply>
+          </apply>
+          <apply>
+            <times />
+            <ci>b3</ci>
+            <apply>
+              <sin />
+              <apply>
+                <times />
+                <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">3</cn>
+                <ci>t</ci>
+                <ci>w</ci>
+              </apply>
+            </apply>
+          </apply>
+          <apply>
+            <times />
+            <ci>a4</ci>
+            <apply>
+              <cos />
+              <apply>
+                <times />
+                <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">4</cn>
+                <ci>t</ci>
+                <ci>w</ci>
+              </apply>
+            </apply>
+          </apply>
+          <apply>
+            <times />
+            <ci>b4</ci>
+            <apply>
+              <sin />
+              <apply>
+                <times />
+                <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">4</cn>
+                <ci>t</ci>
+                <ci>w</ci>
+              </apply>
+            </apply>
+          </apply>
+          <apply>
+            <times />
+            <ci>a5</ci>
+            <apply>
+              <cos />
+              <apply>
+                <times />
+                <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">5</cn>
+                <ci>t</ci>
+                <ci>w</ci>
+              </apply>
+            </apply>
+          </apply>
+          <apply>
+            <times />
+            <ci>b5</ci>
+            <apply>
+              <sin />
+              <apply>
+                <times />
+                <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">5</cn>
+                <ci>t</ci>
+                <ci>w</ci>
+              </apply>
+            </apply>
+          </apply>
+          <apply>
+            <times />
+            <ci>a6</ci>
+            <apply>
+              <cos />
+              <apply>
+                <times />
+                <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">6</cn>
+                <ci>t</ci>
+                <ci>w</ci>
+              </apply>
+            </apply>
+          </apply>
+          <apply>
+            <times />
+            <ci>b6</ci>
+            <apply>
+              <sin />
+              <apply>
+                <times />
+                <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">6</cn>
+                <ci>t</ci>
+                <ci>w</ci>
+              </apply>
+            </apply>
+          </apply>
+          <apply>
+            <times />
+            <ci>a7</ci>
+            <apply>
+              <cos />
+              <apply>
+                <times />
+                <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">7</cn>
+                <ci>t</ci>
+                <ci>w</ci>
+              </apply>
+            </apply>
+          </apply>
+          <apply>
+            <times />
+            <ci>b7</ci>
+            <apply>
+              <sin />
+              <apply>
+                <times />
+                <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">7</cn>
+                <ci>t</ci>
+                <ci>w</ci>
+              </apply>
+            </apply>
+          </apply>
+          <apply>
+            <times />
+            <ci>a8</ci>
+            <apply>
+              <cos />
+              <apply>
+                <times />
+                <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">8</cn>
+                <ci>t</ci>
+                <ci>w</ci>
+              </apply>
+            </apply>
+          </apply>
+          <apply>
+            <times />
+            <ci>b8</ci>
+            <apply>
+              <sin />
+              <apply>
+                <times />
+                <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">8</cn>
+                <ci>t</ci>
+                <ci>w</ci>
+              </apply>
+            </apply>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <apply>
+          <diff />
+          <bvar>
+            <ci>t</ci>
+          </bvar>
+          <ci>dv</ci>
+        </apply>
+        <ci>v_LV</ci>
+      </apply>
+    </math>
+  </component>
+  <rdf:RDF xmlns:bqmodel="http://biomodels.net/model-qualifiers/" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:ro="http://www.obofoundry.org/ro/ro.owl#" xmlns:opb="http://bhi.washington.edu/OPB#">
+    <rdf:Description rdf:about="#metaid0" semsim:modelName="LV" />
+    <rdf:Description rdf:about="#LV_output.t">
+      <bqbiol:is rdf:resource="https://identifiers.org/opb/OPB_01023" />
+    </rdf:Description>
+  </rdf:RDF>
+</model>
+

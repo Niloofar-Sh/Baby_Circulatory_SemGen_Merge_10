@@ -1,0 +1,2815 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model xmlns="http://www.cellml.org/cellml/1.1#" xmlns:cmeta="http://www.cellml.org/metadata/1.0#" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqs="http://www.cellml.org/bqs/1.0#" xmlns:semsim="http://www.bhi.washington.edu/SemSim#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" name="model_0" cmeta:id="metaid0">
+  <units name="s_per_m3">
+    <unit exponent="-3.0" units="metre" />
+    <unit units="second" />
+  </units>
+  <units name="J_s_per_m3">
+    <unit exponent="-3.0" units="metre" />
+    <unit units="joule" />
+    <unit units="second" />
+  </units>
+  <units name="per_s">
+    <unit exponent="-1.0" units="second" />
+  </units>
+  <units name="J_s2_per_m6">
+    <unit exponent="2.0" units="second" />
+    <unit units="joule" />
+    <unit exponent="-6.0" units="metre" />
+  </units>
+  <units name="per_m">
+    <unit exponent="-1.0" units="metre" />
+  </units>
+  <units name="m3_per_s">
+    <unit exponent="-1.0" units="second" />
+    <unit exponent="3.0" units="metre" />
+  </units>
+  <units name="J_s2_per_m5">
+    <unit exponent="2.0" units="second" />
+    <unit units="joule" />
+    <unit exponent="-5.0" units="metre" />
+  </units>
+  <units name="J_s_per_m6">
+    <unit units="joule" />
+    <unit exponent="-6.0" units="metre" />
+    <unit units="second" />
+  </units>
+  <units name="mm">
+    <unit prefix="milli" units="metre" />
+  </units>
+  <units name="per_m3">
+    <unit exponent="-3.0" units="metre" />
+  </units>
+  <units name="m6_per_J">
+    <unit exponent="6.0" units="metre" />
+    <unit exponent="-1.0" units="joule" />
+  </units>
+  <units name="J_per_m3">
+    <unit exponent="-3.0" units="metre" />
+    <unit units="joule" />
+  </units>
+  <units name="J_per_m">
+    <unit exponent="-1.0" units="metre" />
+    <unit units="joule" />
+  </units>
+  <component name="ArchII">
+    <variable cmeta:id="ArchII.t" name="t" public_interface="in" units="second" />
+    <variable cmeta:id="ArchII.mu" initial_value="0.004" name="mu" units="J_s_per_m3" />
+    <variable cmeta:id="ArchII.rho" initial_value="1050" name="rho" units="J_s2_per_m5" />
+    <variable cmeta:id="ArchII.E" initial_value="0.6e+6" name="E" units="J_per_m3" />
+    <variable cmeta:id="ArchII.length" initial_value="7.785e-03" name="length" units="metre" />
+    <variable cmeta:id="ArchII.h" name="h" units="metre" />
+    <variable cmeta:id="ArchII.r" initial_value="3.56e-03" name="r" units="metre" />
+    <variable cmeta:id="ArchII.I" name="I" units="J_s2_per_m6" />
+    <variable cmeta:id="ArchII.C" name="C" units="m6_per_J" />
+    <variable cmeta:id="ArchII.R" name="R" units="J_s_per_m6" />
+    <variable cmeta:id="ArchII.Rd" name="Rd" units="J_s_per_m6" />
+    <variable cmeta:id="ArchII.a" initial_value="0.2802" name="a" units="dimensionless" />
+    <variable cmeta:id="ArchII.b" initial_value="-505.3" name="b" units="per_m" />
+    <variable cmeta:id="ArchII.c" initial_value="0.1324" name="c" units="dimensionless" />
+    <variable cmeta:id="ArchII.d" initial_value="-11.14" name="d" units="per_m" />
+    <variable cmeta:id="ArchII.u_in" name="u_in" public_interface="in" units="J_per_m3" />
+    <variable cmeta:id="ArchII.u_I" name="u_I" units="J_per_m3" />
+    <variable cmeta:id="ArchII.v_I" initial_value="0.0" name="v_I" units="m3_per_s" />
+    <variable cmeta:id="ArchII.u" name="u" units="J_per_m3" />
+    <variable cmeta:id="ArchII.u_R" name="u_R" units="J_per_m3" />
+    <variable cmeta:id="ArchII.v_R" name="v_R" units="m3_per_s" />
+    <variable cmeta:id="ArchII.u_C" initial_value="0.0" name="u_C" units="J_per_m3" />
+    <variable cmeta:id="ArchII.v_C" name="v_C" units="m3_per_s" />
+    <variable cmeta:id="ArchII.v_out_1" name="v_out_1" public_interface="in" units="m3_per_s" />
+    <variable cmeta:id="ArchII.v_out_2" name="v_out_2" public_interface="in" units="m3_per_s" />
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <apply>
+        <eq />
+        <ci>h</ci>
+        <apply>
+          <times />
+          <ci>r</ci>
+          <apply>
+            <plus />
+            <apply>
+              <times />
+              <ci>a</ci>
+              <apply>
+                <exp />
+                <apply>
+                  <times />
+                  <ci>b</ci>
+                  <ci>r</ci>
+                </apply>
+              </apply>
+            </apply>
+            <apply>
+              <times />
+              <ci>c</ci>
+              <apply>
+                <exp />
+                <apply>
+                  <times />
+                  <ci>d</ci>
+                  <ci>r</ci>
+                </apply>
+              </apply>
+            </apply>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>I</ci>
+        <apply>
+          <divide />
+          <apply>
+            <times />
+            <ci>rho</ci>
+            <ci>length</ci>
+          </apply>
+          <apply>
+            <times />
+            <pi />
+            <apply>
+              <power />
+              <ci>r</ci>
+              <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">2</cn>
+            </apply>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>C</ci>
+        <apply>
+          <divide />
+          <apply>
+            <times />
+            <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">2</cn>
+            <pi />
+            <apply>
+              <power />
+              <ci>r</ci>
+              <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">3</cn>
+            </apply>
+            <ci>length</ci>
+          </apply>
+          <apply>
+            <times />
+            <ci>E</ci>
+            <ci>h</ci>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>R</ci>
+        <apply>
+          <divide />
+          <apply>
+            <times />
+            <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">8</cn>
+            <ci>mu</ci>
+            <ci>length</ci>
+          </apply>
+          <apply>
+            <times />
+            <pi />
+            <apply>
+              <power />
+              <ci>r</ci>
+              <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">4</cn>
+            </apply>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>Rd</ci>
+        <apply>
+          <divide />
+          <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="second">0.01</cn>
+          <ci>C</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>u_I</ci>
+        <apply>
+          <minus />
+          <apply>
+            <minus />
+            <ci>u_in</ci>
+            <ci>u</ci>
+          </apply>
+          <apply>
+            <times />
+            <ci>R</ci>
+            <ci>v_I</ci>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <apply>
+          <diff />
+          <bvar>
+            <ci>t</ci>
+          </bvar>
+          <ci>v_I</ci>
+        </apply>
+        <apply>
+          <divide />
+          <ci>u_I</ci>
+          <ci>I</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>v_C</ci>
+        <apply>
+          <minus />
+          <apply>
+            <minus />
+            <ci>v_I</ci>
+            <ci>v_out_1</ci>
+          </apply>
+          <ci>v_out_2</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <apply>
+          <diff />
+          <bvar>
+            <ci>t</ci>
+          </bvar>
+          <ci>u_C</ci>
+        </apply>
+        <apply>
+          <divide />
+          <ci>v_C</ci>
+          <ci>C</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>v_R</ci>
+        <apply>
+          <minus />
+          <apply>
+            <minus />
+            <ci>v_I</ci>
+            <ci>v_out_1</ci>
+          </apply>
+          <ci>v_out_2</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>u_R</ci>
+        <apply>
+          <times />
+          <ci>Rd</ci>
+          <ci>v_R</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>u</ci>
+        <apply>
+          <plus />
+          <ci>u_C</ci>
+          <ci>u_R</ci>
+        </apply>
+      </apply>
+    </math>
+  </component>
+  <component name="Arch_II" />
+  <component name="block3" />
+  <component name="ArchI">
+    <variable cmeta:id="ArchI.t" name="t" public_interface="in" units="second" />
+    <variable cmeta:id="ArchI.mu" initial_value="0.004" name="mu" units="J_s_per_m3" />
+    <variable cmeta:id="ArchI.rho" initial_value="1050" name="rho" units="J_s2_per_m5" />
+    <variable cmeta:id="ArchI.E" initial_value="0.6e+6" name="E" units="J_per_m3" />
+    <variable cmeta:id="ArchI.length" initial_value="7.785e-03" name="length" units="metre" />
+    <variable cmeta:id="ArchI.h" name="h" units="metre" />
+    <variable cmeta:id="ArchI.r_Arch_I" initial_value="3.56e-03" name="r" units="metre" />
+    <variable cmeta:id="ArchI.I" name="I" units="J_s2_per_m6" />
+    <variable cmeta:id="ArchI.C" name="C" units="m6_per_J" />
+    <variable cmeta:id="ArchI.R" name="R" units="J_s_per_m6" />
+    <variable cmeta:id="ArchI.Rd" name="Rd" units="J_s_per_m6" />
+    <variable cmeta:id="ArchI.a" initial_value="0.2802" name="a" units="dimensionless" />
+    <variable cmeta:id="ArchI.b" initial_value="-505.3" name="b" units="per_m" />
+    <variable cmeta:id="ArchI.c" initial_value="0.1324" name="c" units="dimensionless" />
+    <variable cmeta:id="ArchI.d" initial_value="-11.14" name="d" units="per_m" />
+    <variable cmeta:id="ArchI.u_in" name="u_in" public_interface="in" units="J_per_m3" />
+    <variable cmeta:id="ArchI.u_I" name="u_I" units="J_per_m3" />
+    <variable cmeta:id="ArchI.v_I" initial_value="0.0" name="v_I" units="m3_per_s" />
+    <variable cmeta:id="ArchI.u" name="u" units="J_per_m3" />
+    <variable cmeta:id="ArchI.u_R" name="u_R" units="J_per_m3" />
+    <variable cmeta:id="ArchI.v_R" name="v_R" units="m3_per_s" />
+    <variable cmeta:id="ArchI.u_C" initial_value="0.0" name="u_C" units="J_per_m3" />
+    <variable cmeta:id="ArchI.v_C" name="v_C" units="m3_per_s" />
+    <variable cmeta:id="ArchI.v_out_1" name="v_out_1" public_interface="in" units="m3_per_s" />
+    <variable cmeta:id="ArchI.v_out_2" name="v_out_2" public_interface="in" units="m3_per_s" />
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <apply>
+        <eq />
+        <ci>h</ci>
+        <apply>
+          <times />
+          <ci>r</ci>
+          <apply>
+            <plus />
+            <apply>
+              <times />
+              <ci>a</ci>
+              <apply>
+                <exp />
+                <apply>
+                  <times />
+                  <ci>b</ci>
+                  <ci>r</ci>
+                </apply>
+              </apply>
+            </apply>
+            <apply>
+              <times />
+              <ci>c</ci>
+              <apply>
+                <exp />
+                <apply>
+                  <times />
+                  <ci>d</ci>
+                  <ci>r</ci>
+                </apply>
+              </apply>
+            </apply>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>I</ci>
+        <apply>
+          <divide />
+          <apply>
+            <times />
+            <ci>rho</ci>
+            <ci>length</ci>
+          </apply>
+          <apply>
+            <times />
+            <pi />
+            <apply>
+              <power />
+              <ci>r</ci>
+              <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">2</cn>
+            </apply>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>C</ci>
+        <apply>
+          <divide />
+          <apply>
+            <times />
+            <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">2</cn>
+            <pi />
+            <apply>
+              <power />
+              <ci>r</ci>
+              <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">3</cn>
+            </apply>
+            <ci>length</ci>
+          </apply>
+          <apply>
+            <times />
+            <ci>E</ci>
+            <ci>h</ci>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>R</ci>
+        <apply>
+          <divide />
+          <apply>
+            <times />
+            <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">8</cn>
+            <ci>mu</ci>
+            <ci>length</ci>
+          </apply>
+          <apply>
+            <times />
+            <pi />
+            <apply>
+              <power />
+              <ci>r</ci>
+              <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">4</cn>
+            </apply>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>Rd</ci>
+        <apply>
+          <divide />
+          <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="second">0.01</cn>
+          <ci>C</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>u_I</ci>
+        <apply>
+          <minus />
+          <apply>
+            <minus />
+            <ci>u_in</ci>
+            <ci>u</ci>
+          </apply>
+          <apply>
+            <times />
+            <ci>R</ci>
+            <ci>v_I</ci>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <apply>
+          <diff />
+          <bvar>
+            <ci>t</ci>
+          </bvar>
+          <ci>v_I</ci>
+        </apply>
+        <apply>
+          <divide />
+          <ci>u_I</ci>
+          <ci>I</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>v_C</ci>
+        <apply>
+          <minus />
+          <apply>
+            <minus />
+            <ci>v_I</ci>
+            <ci>v_out_1</ci>
+          </apply>
+          <ci>v_out_2</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <apply>
+          <diff />
+          <bvar>
+            <ci>t</ci>
+          </bvar>
+          <ci>u_C</ci>
+        </apply>
+        <apply>
+          <divide />
+          <ci>v_C</ci>
+          <ci>C</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>v_R</ci>
+        <apply>
+          <minus />
+          <apply>
+            <minus />
+            <ci>v_I</ci>
+            <ci>v_out_1</ci>
+          </apply>
+          <ci>v_out_2</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>u_R</ci>
+        <apply>
+          <times />
+          <ci>Rd</ci>
+          <ci>v_R</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>u</ci>
+        <apply>
+          <plus />
+          <ci>u_C</ci>
+          <ci>u_R</ci>
+        </apply>
+      </apply>
+    </math>
+  </component>
+  <component name="Arch_I" />
+  <component name="block1" />
+  <component name="AorticRoot">
+    <variable cmeta:id="AorticRoot.t" name="t" units="second" />
+    <variable cmeta:id="AorticRoot.mu" initial_value="0.004" name="mu" units="J_s_per_m3" />
+    <variable cmeta:id="AorticRoot.rho" initial_value="1050" name="rho" units="J_s2_per_m5" />
+    <variable cmeta:id="AorticRoot.E" initial_value="0.6e+6" name="E" units="J_per_m3" />
+    <variable cmeta:id="AorticRoot.length" initial_value="12.0e-03" name="length" units="metre" />
+    <variable cmeta:id="AorticRoot.h" name="h" units="metre" />
+    <variable cmeta:id="AorticRoot.r" initial_value="6.43e-03" name="r" units="metre" />
+    <variable cmeta:id="AorticRoot.I" name="I" units="J_s2_per_m6" />
+    <variable cmeta:id="AorticRoot.C" name="C" units="m6_per_J" />
+    <variable cmeta:id="AorticRoot.C00" name="C00" units="m6_per_J" />
+    <variable cmeta:id="AorticRoot.R" name="R" units="J_s_per_m6" />
+    <variable cmeta:id="AorticRoot.Rd" name="Rd" units="J_s_per_m6" />
+    <variable cmeta:id="AorticRoot.a" initial_value="0.2802" name="a" units="dimensionless" />
+    <variable cmeta:id="AorticRoot.b" initial_value="-505.3" name="b" units="per_m" />
+    <variable cmeta:id="AorticRoot.c" initial_value="0.1324" name="c" units="dimensionless" />
+    <variable cmeta:id="AorticRoot.d" initial_value="-11.14" name="d" units="per_m" />
+    <variable cmeta:id="AorticRoot.Sf_in" name="Sf_in" units="m3_per_s" />
+    <variable cmeta:id="AorticRoot.u" name="u" units="J_per_m3" />
+    <variable cmeta:id="AorticRoot.u_R" name="u_R" units="J_per_m3" />
+    <variable cmeta:id="AorticRoot.u_Rd" name="u_Rd" units="J_per_m3" />
+    <variable cmeta:id="AorticRoot.u_C" initial_value="0.0" name="u_C" units="J_per_m3" />
+    <variable cmeta:id="AorticRoot.v_C" name="v_C" units="m3_per_s" />
+    <variable cmeta:id="AorticRoot.u_I" name="u_I" units="J_per_m3" />
+    <variable cmeta:id="AorticRoot.v_I" initial_value="0.0" name="v_I" units="m3_per_s" />
+    <variable cmeta:id="AorticRoot.u_C00" initial_value="0.0" name="u_C00" units="J_per_m3" />
+    <variable cmeta:id="AorticRoot.v_C00" name="v_C00" units="m3_per_s" />
+    <variable cmeta:id="AorticRoot.v_out" name="v_out" public_interface="in" units="m3_per_s" />
+    <variable cmeta:id="AorticRoot.mt" name="mt" units="second" />
+    <variable cmeta:id="AorticRoot.T" initial_value="1.0" name="T" units="second" />
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <apply>
+        <eq />
+        <ci>mt</ci>
+        <apply>
+          <minus />
+          <ci>t</ci>
+          <apply>
+            <times />
+            <ci>T</ci>
+            <apply>
+              <floor />
+              <apply>
+                <divide />
+                <ci>t</ci>
+                <ci>T</ci>
+              </apply>
+            </apply>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>Sf_in</ci>
+        <piecewise>
+          <piece>
+            <apply>
+              <times />
+              <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="m3_per_s" type="e-notation">
+                0.1
+                <sep />
+                -6
+              </cn>
+              <apply>
+                <sin />
+                <apply>
+                  <divide />
+                  <apply>
+                    <times />
+                    <pi />
+                    <ci>mt</ci>
+                  </apply>
+                  <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="second">0.3</cn>
+                </apply>
+              </apply>
+            </apply>
+            <apply>
+              <leq />
+              <ci>mt</ci>
+              <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="second">0.3</cn>
+            </apply>
+          </piece>
+          <piece>
+            <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="m3_per_s">0.0</cn>
+            <apply>
+              <gt />
+              <ci>mt</ci>
+              <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="second">0.3</cn>
+            </apply>
+          </piece>
+        </piecewise>
+      </apply>
+      <apply>
+        <eq />
+        <ci>h</ci>
+        <apply>
+          <times />
+          <ci>r</ci>
+          <apply>
+            <plus />
+            <apply>
+              <times />
+              <ci>a</ci>
+              <apply>
+                <exp />
+                <apply>
+                  <times />
+                  <ci>b</ci>
+                  <ci>r</ci>
+                </apply>
+              </apply>
+            </apply>
+            <apply>
+              <times />
+              <ci>c</ci>
+              <apply>
+                <exp />
+                <apply>
+                  <times />
+                  <ci>d</ci>
+                  <ci>r</ci>
+                </apply>
+              </apply>
+            </apply>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>I</ci>
+        <apply>
+          <divide />
+          <apply>
+            <times />
+            <ci>rho</ci>
+            <ci>length</ci>
+          </apply>
+          <apply>
+            <times />
+            <pi />
+            <apply>
+              <power />
+              <ci>r</ci>
+              <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">2</cn>
+            </apply>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>C</ci>
+        <apply>
+          <divide />
+          <apply>
+            <times />
+            <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">2</cn>
+            <pi />
+            <apply>
+              <power />
+              <ci>r</ci>
+              <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">3</cn>
+            </apply>
+            <ci>length</ci>
+          </apply>
+          <apply>
+            <times />
+            <ci>E</ci>
+            <ci>h</ci>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>C00</ci>
+        <apply>
+          <divide />
+          <ci>C</ci>
+          <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">2</cn>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>R</ci>
+        <apply>
+          <divide />
+          <apply>
+            <times />
+            <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">8</cn>
+            <ci>mu</ci>
+            <ci>length</ci>
+          </apply>
+          <apply>
+            <times />
+            <pi />
+            <apply>
+              <power />
+              <ci>r</ci>
+              <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">4</cn>
+            </apply>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>Rd</ci>
+        <apply>
+          <divide />
+          <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="second">0.01</cn>
+          <ci>C</ci>
+        </apply>
+      </apply>
+      <!-- 0-junc input-->
+      <apply>
+        <eq />
+        <ci>v_C00</ci>
+        <apply>
+          <minus />
+          <ci>Sf_in</ci>
+          <ci>v_I</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <apply>
+          <diff />
+          <bvar>
+            <ci>t</ci>
+          </bvar>
+          <ci>u_C00</ci>
+        </apply>
+        <apply>
+          <divide />
+          <ci>v_C00</ci>
+          <ci>C00</ci>
+        </apply>
+      </apply>
+      <!-- 1-junc_a-->
+      <apply>
+        <eq />
+        <ci>u_I</ci>
+        <apply>
+          <minus />
+          <apply>
+            <minus />
+            <ci>u_C00</ci>
+            <ci>u</ci>
+          </apply>
+          <ci>u_R</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <apply>
+          <diff />
+          <bvar>
+            <ci>t</ci>
+          </bvar>
+          <ci>v_I</ci>
+        </apply>
+        <apply>
+          <divide />
+          <ci>u_I</ci>
+          <ci>I</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>u_R</ci>
+        <apply>
+          <times />
+          <ci>R</ci>
+          <ci>v_I</ci>
+        </apply>
+      </apply>
+      <!--0-junc-->
+      <apply>
+        <eq />
+        <ci>v_C</ci>
+        <apply>
+          <minus />
+          <ci>v_I</ci>
+          <ci>v_out</ci>
+        </apply>
+      </apply>
+      <!-- 1-junc_b-->
+      <apply>
+        <eq />
+        <ci>u_C</ci>
+        <apply>
+          <minus />
+          <ci>u</ci>
+          <ci>u_Rd</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>u_Rd</ci>
+        <apply>
+          <times />
+          <ci>Rd</ci>
+          <ci>v_C</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <apply>
+          <diff />
+          <bvar>
+            <ci>t</ci>
+          </bvar>
+          <ci>u_C</ci>
+        </apply>
+        <apply>
+          <divide />
+          <ci>v_C</ci>
+          <ci>C00</ci>
+        </apply>
+      </apply>
+    </math>
+  </component>
+  <component name="Aortic_root" />
+  <component name="AscendingAorta" />
+  <component name="Ascending">
+    <variable cmeta:id="Ascending.t" name="t" public_interface="in" units="second" />
+    <variable cmeta:id="Ascending.mu" initial_value="0.004" name="mu" units="J_s_per_m3" />
+    <variable cmeta:id="Ascending.rho" initial_value="1050" name="rho" units="J_s2_per_m5" />
+    <variable cmeta:id="Ascending.E" initial_value="0.6e+6" name="E" units="J_per_m3" />
+    <variable cmeta:id="Ascending.length" initial_value="12.33e-03" name="length" units="metre" />
+    <variable cmeta:id="Ascending.h" name="h" units="metre" />
+    <variable cmeta:id="Ascending.r" initial_value="5.03e-03" name="r" units="metre" />
+    <variable cmeta:id="Ascending.I" name="I" units="J_s2_per_m6" />
+    <variable cmeta:id="Ascending.C" name="C" units="m6_per_J" />
+    <variable cmeta:id="Ascending.R" name="R" units="J_s_per_m6" />
+    <variable cmeta:id="Ascending.Rd" name="Rd" units="J_s_per_m6" />
+    <variable cmeta:id="Ascending.a" initial_value="0.2802" name="a" units="dimensionless" />
+    <variable cmeta:id="Ascending.b" initial_value="-505.3" name="b" units="per_m" />
+    <variable cmeta:id="Ascending.c" initial_value="0.1324" name="c" units="dimensionless" />
+    <variable cmeta:id="Ascending.d" initial_value="-11.14" name="d" units="per_m" />
+    <variable cmeta:id="Ascending.u_in" name="u_in" public_interface="in" units="J_per_m3" />
+    <variable cmeta:id="Ascending.u_I" name="u_I" units="J_per_m3" />
+    <variable cmeta:id="Ascending.v_I" initial_value="0.0" name="v_I" units="m3_per_s" />
+    <variable cmeta:id="Ascending.u" name="u" units="J_per_m3" />
+    <variable cmeta:id="Ascending.u_R" name="u_R" units="J_per_m3" />
+    <variable cmeta:id="Ascending.v_R" name="v_R" units="m3_per_s" />
+    <variable cmeta:id="Ascending.u_C" initial_value="0.0" name="u_C" units="J_per_m3" />
+    <variable cmeta:id="Ascending.v_C" name="v_C" units="m3_per_s" />
+    <variable cmeta:id="Ascending.v_out_1" name="v_out_1" public_interface="in" units="m3_per_s" />
+    <variable cmeta:id="Ascending.v_out_2" name="v_out_2" public_interface="in" units="m3_per_s" />
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <apply>
+        <eq />
+        <ci>h</ci>
+        <apply>
+          <times />
+          <ci>r</ci>
+          <apply>
+            <plus />
+            <apply>
+              <times />
+              <ci>a</ci>
+              <apply>
+                <exp />
+                <apply>
+                  <times />
+                  <ci>b</ci>
+                  <ci>r</ci>
+                </apply>
+              </apply>
+            </apply>
+            <apply>
+              <times />
+              <ci>c</ci>
+              <apply>
+                <exp />
+                <apply>
+                  <times />
+                  <ci>d</ci>
+                  <ci>r</ci>
+                </apply>
+              </apply>
+            </apply>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>I</ci>
+        <apply>
+          <divide />
+          <apply>
+            <times />
+            <ci>rho</ci>
+            <ci>length</ci>
+          </apply>
+          <apply>
+            <times />
+            <pi />
+            <apply>
+              <power />
+              <ci>r</ci>
+              <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">2</cn>
+            </apply>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>C</ci>
+        <apply>
+          <divide />
+          <apply>
+            <times />
+            <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">2</cn>
+            <pi />
+            <apply>
+              <power />
+              <ci>r</ci>
+              <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">3</cn>
+            </apply>
+            <ci>length</ci>
+          </apply>
+          <apply>
+            <times />
+            <ci>E</ci>
+            <ci>h</ci>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>R</ci>
+        <apply>
+          <divide />
+          <apply>
+            <times />
+            <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">8</cn>
+            <ci>mu</ci>
+            <ci>length</ci>
+          </apply>
+          <apply>
+            <times />
+            <pi />
+            <apply>
+              <power />
+              <ci>r</ci>
+              <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">4</cn>
+            </apply>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>Rd</ci>
+        <apply>
+          <divide />
+          <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="second">0.01</cn>
+          <ci>C</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>u_I</ci>
+        <apply>
+          <minus />
+          <apply>
+            <minus />
+            <ci>u_in</ci>
+            <ci>u</ci>
+          </apply>
+          <apply>
+            <times />
+            <ci>R</ci>
+            <ci>v_I</ci>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <apply>
+          <diff />
+          <bvar>
+            <ci>t</ci>
+          </bvar>
+          <ci>v_I</ci>
+        </apply>
+        <apply>
+          <divide />
+          <ci>u_I</ci>
+          <ci>I</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>v_C</ci>
+        <apply>
+          <minus />
+          <apply>
+            <minus />
+            <ci>v_I</ci>
+            <ci>v_out_1</ci>
+          </apply>
+          <ci>v_out_2</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <apply>
+          <diff />
+          <bvar>
+            <ci>t</ci>
+          </bvar>
+          <ci>u_C</ci>
+        </apply>
+        <apply>
+          <divide />
+          <ci>v_C</ci>
+          <ci>C</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>v_R</ci>
+        <apply>
+          <minus />
+          <apply>
+            <minus />
+            <ci>v_I</ci>
+            <ci>v_out_1</ci>
+          </apply>
+          <ci>v_out_2</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>u_R</ci>
+        <apply>
+          <times />
+          <ci>Rd</ci>
+          <ci>v_R</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>u</ci>
+        <apply>
+          <plus />
+          <ci>u_C</ci>
+          <ci>u_R</ci>
+        </apply>
+      </apply>
+    </math>
+  </component>
+  <component name="block2" />
+  <component name="Left_common_carotid" />
+  <component name="LeftCarotid">
+    <variable cmeta:id="LeftCarotid.t" name="t" public_interface="in" units="second" />
+    <variable cmeta:id="LeftCarotid.mu" initial_value="0.004" name="mu" units="J_s_per_m3" />
+    <variable cmeta:id="LeftCarotid.rho" initial_value="1050" name="rho" units="J_s2_per_m5" />
+    <variable cmeta:id="LeftCarotid.E" initial_value="0.6e+6" name="E" units="J_per_m3" />
+    <variable cmeta:id="LeftCarotid.length" initial_value="45.03e-03" name="length" units="metre" />
+    <variable cmeta:id="LeftCarotid.h" name="h" units="metre" />
+    <variable cmeta:id="LeftCarotid.r" initial_value="1.71e-03" name="r" units="metre" />
+    <variable cmeta:id="LeftCarotid.I" name="I" units="J_s2_per_m6" />
+    <variable cmeta:id="LeftCarotid.It" name="It" units="J_s2_per_m6" />
+    <variable cmeta:id="LeftCarotid.C" name="C" units="m6_per_J" />
+    <variable cmeta:id="LeftCarotid.R" name="R" units="J_s_per_m6" />
+    <variable cmeta:id="LeftCarotid.Rd" name="Rd" units="J_s_per_m6" />
+    <variable cmeta:id="LeftCarotid.Rt" name="Rt" units="J_s_per_m6" />
+    <variable cmeta:id="LeftCarotid.a" initial_value="0.2802" name="a" units="dimensionless" />
+    <variable cmeta:id="LeftCarotid.b" initial_value="-505.3" name="b" units="per_m" />
+    <variable cmeta:id="LeftCarotid.c" initial_value="0.1324" name="c" units="dimensionless" />
+    <variable cmeta:id="LeftCarotid.d" initial_value="-11.14" name="d" units="per_m" />
+    <variable cmeta:id="LeftCarotid.u_in" name="u_in" public_interface="in" units="J_per_m3" />
+    <variable cmeta:id="LeftCarotid.u_Rt" name="u_Rt" units="J_per_m3" />
+    <variable cmeta:id="LeftCarotid.v_I" initial_value="0.0" name="v_I" units="m3_per_s" />
+    <variable cmeta:id="LeftCarotid.u" name="u" units="J_per_m3" />
+    <variable cmeta:id="LeftCarotid.u_C" initial_value="0.0" name="u_C" units="J_per_m3" />
+    <variable cmeta:id="LeftCarotid.u_R" name="u_R" units="J_per_m3" />
+    <variable cmeta:id="LeftCarotid.v_It" initial_value="0.0" name="v_It" units="m3_per_s" />
+    <variable cmeta:id="LeftCarotid.u_out" initial_value="0.0" name="u_out" units="J_per_m3" />
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <apply>
+        <eq />
+        <ci>h</ci>
+        <apply>
+          <times />
+          <ci>r</ci>
+          <apply>
+            <plus />
+            <apply>
+              <times />
+              <ci>a</ci>
+              <apply>
+                <exp />
+                <apply>
+                  <times />
+                  <ci>b</ci>
+                  <ci>r</ci>
+                </apply>
+              </apply>
+            </apply>
+            <apply>
+              <times />
+              <ci>c</ci>
+              <apply>
+                <exp />
+                <apply>
+                  <times />
+                  <ci>d</ci>
+                  <ci>r</ci>
+                </apply>
+              </apply>
+            </apply>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>I</ci>
+        <apply>
+          <divide />
+          <apply>
+            <divide />
+            <apply>
+              <times />
+              <ci>rho</ci>
+              <ci>length</ci>
+            </apply>
+            <apply>
+              <times />
+              <pi />
+              <apply>
+                <power />
+                <ci>r</ci>
+                <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">2</cn>
+              </apply>
+            </apply>
+          </apply>
+          <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">2</cn>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>It</ci>
+        <ci>I</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>C</ci>
+        <apply>
+          <divide />
+          <apply>
+            <times />
+            <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">2</cn>
+            <pi />
+            <apply>
+              <power />
+              <ci>r</ci>
+              <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">3</cn>
+            </apply>
+            <ci>length</ci>
+          </apply>
+          <apply>
+            <times />
+            <ci>E</ci>
+            <ci>h</ci>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>R</ci>
+        <apply>
+          <divide />
+          <apply>
+            <divide />
+            <apply>
+              <times />
+              <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">8</cn>
+              <ci>mu</ci>
+              <ci>length</ci>
+            </apply>
+            <apply>
+              <times />
+              <pi />
+              <apply>
+                <power />
+                <ci>r</ci>
+                <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">4</cn>
+              </apply>
+            </apply>
+          </apply>
+          <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">2</cn>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>Rt</ci>
+        <ci>R</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>Rd</ci>
+        <apply>
+          <divide />
+          <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="second">0.01</cn>
+          <ci>C</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>u_R</ci>
+        <apply>
+          <times />
+          <ci>R</ci>
+          <ci>v_I</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <apply>
+          <diff />
+          <bvar>
+            <ci>t</ci>
+          </bvar>
+          <ci>v_I</ci>
+        </apply>
+        <apply>
+          <divide />
+          <apply>
+            <minus />
+            <apply>
+              <minus />
+              <ci>u_in</ci>
+              <ci>u</ci>
+            </apply>
+            <ci>u_R</ci>
+          </apply>
+          <ci>I</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <apply>
+          <diff />
+          <bvar>
+            <ci>t</ci>
+          </bvar>
+          <ci>u_C</ci>
+        </apply>
+        <apply>
+          <divide />
+          <apply>
+            <minus />
+            <ci>v_I</ci>
+            <ci>v_It</ci>
+          </apply>
+          <ci>C</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>u</ci>
+        <apply>
+          <plus />
+          <ci>u_C</ci>
+          <apply>
+            <times />
+            <ci>Rd</ci>
+            <apply>
+              <minus />
+              <ci>v_I</ci>
+              <ci>v_It</ci>
+            </apply>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>u_Rt</ci>
+        <apply>
+          <times />
+          <ci>Rt</ci>
+          <ci>v_It</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <apply>
+          <diff />
+          <bvar>
+            <ci>t</ci>
+          </bvar>
+          <ci>v_It</ci>
+        </apply>
+        <apply>
+          <divide />
+          <apply>
+            <minus />
+            <apply>
+              <minus />
+              <ci>u</ci>
+              <ci>u_Rt</ci>
+            </apply>
+            <ci>u_out</ci>
+          </apply>
+          <ci>It</ci>
+        </apply>
+      </apply>
+    </math>
+  </component>
+  <component name="block4" />
+  <component name="Left_subclavian" />
+  <component name="LeftSubclavian">
+    <variable cmeta:id="LeftSubclavian.t" name="t" public_interface="in" units="second" />
+    <variable cmeta:id="LeftSubclavian.mu" initial_value="0.004" name="mu" units="J_s_per_m3" />
+    <variable cmeta:id="LeftSubclavian.rho" initial_value="1050" name="rho" units="J_s2_per_m5" />
+    <variable cmeta:id="LeftSubclavian.E" initial_value="0.6e+6" name="E" units="J_per_m3" />
+    <variable cmeta:id="LeftSubclavian.length" initial_value="57.79e-03" name="length" units="metre" />
+    <variable cmeta:id="LeftSubclavian.h" name="h" units="metre" />
+    <variable cmeta:id="LeftSubclavian.r" initial_value="1.35e-03" name="r" units="metre" />
+    <variable cmeta:id="LeftSubclavian.I" name="I" units="J_s2_per_m6" />
+    <variable cmeta:id="LeftSubclavian.It" name="It" units="J_s2_per_m6" />
+    <variable cmeta:id="LeftSubclavian.C" name="C" units="m6_per_J" />
+    <variable cmeta:id="LeftSubclavian.R" name="R" units="J_s_per_m6" />
+    <variable cmeta:id="LeftSubclavian.Rd" name="Rd" units="J_s_per_m6" />
+    <variable cmeta:id="LeftSubclavian.Rt" name="Rt" units="J_s_per_m6" />
+    <variable cmeta:id="LeftSubclavian.a" initial_value="0.2802" name="a" units="dimensionless" />
+    <variable cmeta:id="LeftSubclavian.b" initial_value="-505.3" name="b" units="per_m" />
+    <variable cmeta:id="LeftSubclavian.c" initial_value="0.1324" name="c" units="dimensionless" />
+    <variable cmeta:id="LeftSubclavian.d" initial_value="-11.14" name="d" units="per_m" />
+    <variable cmeta:id="LeftSubclavian.u_in" name="u_in" public_interface="in" units="J_per_m3" />
+    <variable cmeta:id="LeftSubclavian.u_Rt" name="u_Rt" units="J_per_m3" />
+    <variable cmeta:id="LeftSubclavian.v_I" initial_value="0.0" name="v_I" units="m3_per_s" />
+    <variable cmeta:id="LeftSubclavian.u" name="u" units="J_per_m3" />
+    <variable cmeta:id="LeftSubclavian.u_C" initial_value="0.0" name="u_C" units="J_per_m3" />
+    <variable cmeta:id="LeftSubclavian.u_R" name="u_R" units="J_per_m3" />
+    <variable cmeta:id="LeftSubclavian.v_It" initial_value="0.0" name="v_It" units="m3_per_s" />
+    <variable cmeta:id="LeftSubclavian.u_out" initial_value="0.0" name="u_out" units="J_per_m3" />
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <apply>
+        <eq />
+        <ci>h</ci>
+        <apply>
+          <times />
+          <ci>r</ci>
+          <apply>
+            <plus />
+            <apply>
+              <times />
+              <ci>a</ci>
+              <apply>
+                <exp />
+                <apply>
+                  <times />
+                  <ci>b</ci>
+                  <ci>r</ci>
+                </apply>
+              </apply>
+            </apply>
+            <apply>
+              <times />
+              <ci>c</ci>
+              <apply>
+                <exp />
+                <apply>
+                  <times />
+                  <ci>d</ci>
+                  <ci>r</ci>
+                </apply>
+              </apply>
+            </apply>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>I</ci>
+        <apply>
+          <divide />
+          <apply>
+            <divide />
+            <apply>
+              <times />
+              <ci>rho</ci>
+              <ci>length</ci>
+            </apply>
+            <apply>
+              <times />
+              <pi />
+              <apply>
+                <power />
+                <ci>r</ci>
+                <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">2</cn>
+              </apply>
+            </apply>
+          </apply>
+          <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">2</cn>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>It</ci>
+        <ci>I</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>C</ci>
+        <apply>
+          <divide />
+          <apply>
+            <times />
+            <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">2</cn>
+            <pi />
+            <apply>
+              <power />
+              <ci>r</ci>
+              <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">3</cn>
+            </apply>
+            <ci>length</ci>
+          </apply>
+          <apply>
+            <times />
+            <ci>E</ci>
+            <ci>h</ci>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>R</ci>
+        <apply>
+          <divide />
+          <apply>
+            <divide />
+            <apply>
+              <times />
+              <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">8</cn>
+              <ci>mu</ci>
+              <ci>length</ci>
+            </apply>
+            <apply>
+              <times />
+              <pi />
+              <apply>
+                <power />
+                <ci>r</ci>
+                <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">4</cn>
+              </apply>
+            </apply>
+          </apply>
+          <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">2</cn>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>Rt</ci>
+        <ci>R</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>Rd</ci>
+        <apply>
+          <divide />
+          <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="second">0.01</cn>
+          <ci>C</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>u_R</ci>
+        <apply>
+          <times />
+          <ci>R</ci>
+          <ci>v_I</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <apply>
+          <diff />
+          <bvar>
+            <ci>t</ci>
+          </bvar>
+          <ci>v_I</ci>
+        </apply>
+        <apply>
+          <divide />
+          <apply>
+            <minus />
+            <apply>
+              <minus />
+              <ci>u_in</ci>
+              <ci>u</ci>
+            </apply>
+            <ci>u_R</ci>
+          </apply>
+          <ci>I</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <apply>
+          <diff />
+          <bvar>
+            <ci>t</ci>
+          </bvar>
+          <ci>u_C</ci>
+        </apply>
+        <apply>
+          <divide />
+          <apply>
+            <minus />
+            <ci>v_I</ci>
+            <ci>v_It</ci>
+          </apply>
+          <ci>C</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>u</ci>
+        <apply>
+          <plus />
+          <ci>u_C</ci>
+          <apply>
+            <times />
+            <ci>Rd</ci>
+            <apply>
+              <minus />
+              <ci>v_I</ci>
+              <ci>v_It</ci>
+            </apply>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>u_Rt</ci>
+        <apply>
+          <times />
+          <ci>Rt</ci>
+          <ci>v_It</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <apply>
+          <diff />
+          <bvar>
+            <ci>t</ci>
+          </bvar>
+          <ci>v_It</ci>
+        </apply>
+        <apply>
+          <divide />
+          <apply>
+            <minus />
+            <apply>
+              <minus />
+              <ci>u</ci>
+              <ci>u_Rt</ci>
+            </apply>
+            <ci>u_out</ci>
+          </apply>
+          <ci>It</ci>
+        </apply>
+      </apply>
+    </math>
+  </component>
+  <component name="block5" />
+  <component name="Descending_Aorta" />
+  <component name="Descending">
+    <variable cmeta:id="Descending.t" name="t" public_interface="in" units="second" />
+    <variable cmeta:id="Descending.mu" initial_value="0.004" name="mu" units="J_s_per_m3" />
+    <variable cmeta:id="Descending.rho" initial_value="1050" name="rho" units="J_s2_per_m5" />
+    <variable cmeta:id="Descending.E" initial_value="0.6e+6" name="E" units="J_per_m3" />
+    <variable cmeta:id="Descending.length" initial_value="101.93e-03" name="length" units="metre" />
+    <variable cmeta:id="Descending.h" name="h" units="metre" />
+    <variable cmeta:id="Descending.r" initial_value="2.89e-03" name="r" units="metre" />
+    <variable cmeta:id="Descending.I" name="I" units="J_s2_per_m6" />
+    <variable cmeta:id="Descending.It" name="It" units="J_s2_per_m6" />
+    <variable cmeta:id="Descending.C" name="C" units="m6_per_J" />
+    <variable cmeta:id="Descending.R" name="R" units="J_s_per_m6" />
+    <variable cmeta:id="Descending.Rd" name="Rd" units="J_s_per_m6" />
+    <variable cmeta:id="Descending.Rt" name="Rt" units="J_s_per_m6" />
+    <variable cmeta:id="Descending.a" initial_value="0.2802" name="a" units="dimensionless" />
+    <variable cmeta:id="Descending.b" initial_value="-505.3" name="b" units="per_m" />
+    <variable cmeta:id="Descending.c" initial_value="0.1324" name="c" units="dimensionless" />
+    <variable cmeta:id="Descending.d" initial_value="-11.14" name="d" units="per_m" />
+    <variable cmeta:id="Descending.u_in" name="u_in" public_interface="in" units="J_per_m3" />
+    <variable cmeta:id="Descending.u_Rt" name="u_Rt" units="J_per_m3" />
+    <variable cmeta:id="Descending.v_I" initial_value="0.0" name="v_I" units="m3_per_s" />
+    <variable cmeta:id="Descending.u" name="u" units="J_per_m3" />
+    <variable cmeta:id="Descending.u_C" initial_value="0.0" name="u_C" units="J_per_m3" />
+    <variable cmeta:id="Descending.u_R" name="u_R" units="J_per_m3" />
+    <variable cmeta:id="Descending.v_It" initial_value="0.0" name="v_It" units="m3_per_s" />
+    <variable cmeta:id="Descending.u_out" initial_value="0.0" name="u_out" units="J_per_m3" />
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <apply>
+        <eq />
+        <ci>h</ci>
+        <apply>
+          <times />
+          <ci>r</ci>
+          <apply>
+            <plus />
+            <apply>
+              <times />
+              <ci>a</ci>
+              <apply>
+                <exp />
+                <apply>
+                  <times />
+                  <ci>b</ci>
+                  <ci>r</ci>
+                </apply>
+              </apply>
+            </apply>
+            <apply>
+              <times />
+              <ci>c</ci>
+              <apply>
+                <exp />
+                <apply>
+                  <times />
+                  <ci>d</ci>
+                  <ci>r</ci>
+                </apply>
+              </apply>
+            </apply>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>I</ci>
+        <apply>
+          <divide />
+          <apply>
+            <divide />
+            <apply>
+              <times />
+              <ci>rho</ci>
+              <ci>length</ci>
+            </apply>
+            <apply>
+              <times />
+              <pi />
+              <apply>
+                <power />
+                <ci>r</ci>
+                <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">2</cn>
+              </apply>
+            </apply>
+          </apply>
+          <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">2</cn>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>It</ci>
+        <ci>I</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>C</ci>
+        <apply>
+          <divide />
+          <apply>
+            <times />
+            <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">2</cn>
+            <pi />
+            <apply>
+              <power />
+              <ci>r</ci>
+              <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">3</cn>
+            </apply>
+            <ci>length</ci>
+          </apply>
+          <apply>
+            <times />
+            <ci>E</ci>
+            <ci>h</ci>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>R</ci>
+        <apply>
+          <divide />
+          <apply>
+            <divide />
+            <apply>
+              <times />
+              <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">8</cn>
+              <ci>mu</ci>
+              <ci>length</ci>
+            </apply>
+            <apply>
+              <times />
+              <pi />
+              <apply>
+                <power />
+                <ci>r</ci>
+                <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">4</cn>
+              </apply>
+            </apply>
+          </apply>
+          <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">2</cn>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>Rt</ci>
+        <ci>R</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>Rd</ci>
+        <apply>
+          <divide />
+          <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="second">0.01</cn>
+          <ci>C</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>u_R</ci>
+        <apply>
+          <times />
+          <ci>R</ci>
+          <ci>v_I</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <apply>
+          <diff />
+          <bvar>
+            <ci>t</ci>
+          </bvar>
+          <ci>v_I</ci>
+        </apply>
+        <apply>
+          <divide />
+          <apply>
+            <minus />
+            <apply>
+              <minus />
+              <ci>u_in</ci>
+              <ci>u</ci>
+            </apply>
+            <ci>u_R</ci>
+          </apply>
+          <ci>I</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <apply>
+          <diff />
+          <bvar>
+            <ci>t</ci>
+          </bvar>
+          <ci>u_C</ci>
+        </apply>
+        <apply>
+          <divide />
+          <apply>
+            <minus />
+            <ci>v_I</ci>
+            <ci>v_It</ci>
+          </apply>
+          <ci>C</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>u</ci>
+        <apply>
+          <plus />
+          <ci>u_C</ci>
+          <apply>
+            <times />
+            <ci>Rd</ci>
+            <apply>
+              <minus />
+              <ci>v_I</ci>
+              <ci>v_It</ci>
+            </apply>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>u_Rt</ci>
+        <apply>
+          <times />
+          <ci>Rt</ci>
+          <ci>v_It</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <apply>
+          <diff />
+          <bvar>
+            <ci>t</ci>
+          </bvar>
+          <ci>v_It</ci>
+        </apply>
+        <apply>
+          <divide />
+          <apply>
+            <minus />
+            <apply>
+              <minus />
+              <ci>u</ci>
+              <ci>u_Rt</ci>
+            </apply>
+            <ci>u_out</ci>
+          </apply>
+          <ci>It</ci>
+        </apply>
+      </apply>
+    </math>
+  </component>
+  <component name="block6" />
+  <component name="Brachiocephalic_artery" />
+  <component name="Brachiocephalic">
+    <variable cmeta:id="Brachiocephalic.t" name="t" public_interface="in" units="second" />
+    <variable cmeta:id="Brachiocephalic.mu" initial_value="0.004" name="mu" units="J_s_per_m3" />
+    <variable cmeta:id="Brachiocephalic.rho" initial_value="1050" name="rho" units="J_s2_per_m5" />
+    <variable cmeta:id="Brachiocephalic.E" initial_value="0.6e+6" name="E" units="J_per_m3" />
+    <variable cmeta:id="Brachiocephalic.length" initial_value="15.74e-03" name="length" units="metre" />
+    <variable cmeta:id="Brachiocephalic.h" name="h" units="metre" />
+    <variable cmeta:id="Brachiocephalic.r" initial_value="2.75e-03" name="r" units="metre" />
+    <variable cmeta:id="Brachiocephalic.I" name="I" units="J_s2_per_m6" />
+    <variable cmeta:id="Brachiocephalic.C" name="C" units="m6_per_J" />
+    <variable cmeta:id="Brachiocephalic.R" name="R" units="J_s_per_m6" />
+    <variable cmeta:id="Brachiocephalic.Rd" name="Rd" units="J_s_per_m6" />
+    <variable cmeta:id="Brachiocephalic.a" initial_value="0.2802" name="a" units="dimensionless" />
+    <variable cmeta:id="Brachiocephalic.b" initial_value="-505.3" name="b" units="per_m" />
+    <variable cmeta:id="Brachiocephalic.c" initial_value="0.1324" name="c" units="dimensionless" />
+    <variable cmeta:id="Brachiocephalic.d" initial_value="-11.14" name="d" units="per_m" />
+    <variable cmeta:id="Brachiocephalic.u_in" name="u_in" public_interface="in" units="J_per_m3" />
+    <variable cmeta:id="Brachiocephalic.u_I" name="u_I" units="J_per_m3" />
+    <variable cmeta:id="Brachiocephalic.v_I" initial_value="0.0" name="v_I" units="m3_per_s" />
+    <variable cmeta:id="Brachiocephalic.u" name="u" units="J_per_m3" />
+    <variable cmeta:id="Brachiocephalic.u_R" name="u_R" units="J_per_m3" />
+    <variable cmeta:id="Brachiocephalic.v_R" name="v_R" units="m3_per_s" />
+    <variable cmeta:id="Brachiocephalic.u_C" initial_value="0.0" name="u_C" units="J_per_m3" />
+    <variable cmeta:id="Brachiocephalic.v_C" name="v_C" units="m3_per_s" />
+    <variable cmeta:id="Brachiocephalic.v_out_1" name="v_out_1" public_interface="in" units="m3_per_s" />
+    <variable cmeta:id="Brachiocephalic.v_out_2" name="v_out_2" public_interface="in" units="m3_per_s" />
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <apply>
+        <eq />
+        <ci>h</ci>
+        <apply>
+          <times />
+          <ci>r</ci>
+          <apply>
+            <plus />
+            <apply>
+              <times />
+              <ci>a</ci>
+              <apply>
+                <exp />
+                <apply>
+                  <times />
+                  <ci>b</ci>
+                  <ci>r</ci>
+                </apply>
+              </apply>
+            </apply>
+            <apply>
+              <times />
+              <ci>c</ci>
+              <apply>
+                <exp />
+                <apply>
+                  <times />
+                  <ci>d</ci>
+                  <ci>r</ci>
+                </apply>
+              </apply>
+            </apply>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>I</ci>
+        <apply>
+          <divide />
+          <apply>
+            <times />
+            <ci>rho</ci>
+            <ci>length</ci>
+          </apply>
+          <apply>
+            <times />
+            <pi />
+            <apply>
+              <power />
+              <ci>r</ci>
+              <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">2</cn>
+            </apply>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>C</ci>
+        <apply>
+          <divide />
+          <apply>
+            <times />
+            <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">2</cn>
+            <pi />
+            <apply>
+              <power />
+              <ci>r</ci>
+              <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">3</cn>
+            </apply>
+            <ci>length</ci>
+          </apply>
+          <apply>
+            <times />
+            <ci>E</ci>
+            <ci>h</ci>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>R</ci>
+        <apply>
+          <divide />
+          <apply>
+            <times />
+            <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">8</cn>
+            <ci>mu</ci>
+            <ci>length</ci>
+          </apply>
+          <apply>
+            <times />
+            <pi />
+            <apply>
+              <power />
+              <ci>r</ci>
+              <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">4</cn>
+            </apply>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>Rd</ci>
+        <apply>
+          <divide />
+          <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="second">0.01</cn>
+          <ci>C</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>u_I</ci>
+        <apply>
+          <minus />
+          <apply>
+            <minus />
+            <ci>u_in</ci>
+            <ci>u</ci>
+          </apply>
+          <apply>
+            <times />
+            <ci>R</ci>
+            <ci>v_I</ci>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <apply>
+          <diff />
+          <bvar>
+            <ci>t</ci>
+          </bvar>
+          <ci>v_I</ci>
+        </apply>
+        <apply>
+          <divide />
+          <ci>u_I</ci>
+          <ci>I</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>v_C</ci>
+        <apply>
+          <minus />
+          <apply>
+            <minus />
+            <ci>v_I</ci>
+            <ci>v_out_1</ci>
+          </apply>
+          <ci>v_out_2</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <apply>
+          <diff />
+          <bvar>
+            <ci>t</ci>
+          </bvar>
+          <ci>u_C</ci>
+        </apply>
+        <apply>
+          <divide />
+          <ci>v_C</ci>
+          <ci>C</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>v_R</ci>
+        <apply>
+          <minus />
+          <apply>
+            <minus />
+            <ci>v_I</ci>
+            <ci>v_out_1</ci>
+          </apply>
+          <ci>v_out_2</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>u_R</ci>
+        <apply>
+          <times />
+          <ci>Rd</ci>
+          <ci>v_R</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>u</ci>
+        <apply>
+          <plus />
+          <ci>u_C</ci>
+          <ci>u_R</ci>
+        </apply>
+      </apply>
+    </math>
+  </component>
+  <component name="block7" />
+  <component name="RightCarotid" />
+  <component name="Right_common_carotid">
+    <variable cmeta:id="Right_common_carotid.t" name="t" public_interface="in" units="second" />
+    <variable cmeta:id="Right_common_carotid.mu" initial_value="0.004" name="mu" units="J_s_per_m3" />
+    <variable cmeta:id="Right_common_carotid.rho" initial_value="1050" name="rho" units="J_s2_per_m5" />
+    <variable cmeta:id="Right_common_carotid.E" initial_value="0.6e+6" name="E" units="J_per_m3" />
+    <variable cmeta:id="Right_common_carotid.length" initial_value="32.09e-03" name="length" units="metre" />
+    <variable cmeta:id="Right_common_carotid.h" name="h" units="metre" />
+    <variable cmeta:id="Right_common_carotid.r" initial_value="1.57e-03" name="r" units="metre" />
+    <variable cmeta:id="Right_common_carotid.I" name="I" units="J_s2_per_m6" />
+    <variable cmeta:id="Right_common_carotid.It" name="It" units="J_s2_per_m6" />
+    <variable cmeta:id="Right_common_carotid.C" name="C" units="m6_per_J" />
+    <variable cmeta:id="Right_common_carotid.R" name="R" units="J_s_per_m6" />
+    <variable cmeta:id="Right_common_carotid.Rd" name="Rd" units="J_s_per_m6" />
+    <variable cmeta:id="Right_common_carotid.Rt" name="Rt" units="J_s_per_m6" />
+    <variable cmeta:id="Right_common_carotid.a" initial_value="0.2802" name="a" units="dimensionless" />
+    <variable cmeta:id="Right_common_carotid.b" initial_value="-505.3" name="b" units="per_m" />
+    <variable cmeta:id="Right_common_carotid.c" initial_value="0.1324" name="c" units="dimensionless" />
+    <variable cmeta:id="Right_common_carotid.d" initial_value="-11.14" name="d" units="per_m" />
+    <variable cmeta:id="Right_common_carotid.u_in" name="u_in" public_interface="in" units="J_per_m3" />
+    <variable cmeta:id="Right_common_carotid.u_Rt" name="u_Rt" units="J_per_m3" />
+    <variable cmeta:id="Right_common_carotid.v_I" initial_value="0.0" name="v_I" units="m3_per_s" />
+    <variable cmeta:id="Right_common_carotid.u" name="u" units="J_per_m3" />
+    <variable cmeta:id="Right_common_carotid.u_C" initial_value="0.0" name="u_C" units="J_per_m3" />
+    <variable cmeta:id="Right_common_carotid.u_R" name="u_R" units="J_per_m3" />
+    <variable cmeta:id="Right_common_carotid.v_It" initial_value="0.0" name="v_It" units="m3_per_s" />
+    <variable cmeta:id="Right_common_carotid.u_out" initial_value="0.0" name="u_out" units="J_per_m3" />
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <apply>
+        <eq />
+        <ci>h</ci>
+        <apply>
+          <times />
+          <ci>r</ci>
+          <apply>
+            <plus />
+            <apply>
+              <times />
+              <ci>a</ci>
+              <apply>
+                <exp />
+                <apply>
+                  <times />
+                  <ci>b</ci>
+                  <ci>r</ci>
+                </apply>
+              </apply>
+            </apply>
+            <apply>
+              <times />
+              <ci>c</ci>
+              <apply>
+                <exp />
+                <apply>
+                  <times />
+                  <ci>d</ci>
+                  <ci>r</ci>
+                </apply>
+              </apply>
+            </apply>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>I</ci>
+        <apply>
+          <divide />
+          <apply>
+            <divide />
+            <apply>
+              <times />
+              <ci>rho</ci>
+              <ci>length</ci>
+            </apply>
+            <apply>
+              <times />
+              <pi />
+              <apply>
+                <power />
+                <ci>r</ci>
+                <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">2</cn>
+              </apply>
+            </apply>
+          </apply>
+          <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">2</cn>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>It</ci>
+        <ci>I</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>C</ci>
+        <apply>
+          <divide />
+          <apply>
+            <times />
+            <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">2</cn>
+            <pi />
+            <apply>
+              <power />
+              <ci>r</ci>
+              <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">3</cn>
+            </apply>
+            <ci>length</ci>
+          </apply>
+          <apply>
+            <times />
+            <ci>E</ci>
+            <ci>h</ci>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>R</ci>
+        <apply>
+          <divide />
+          <apply>
+            <divide />
+            <apply>
+              <times />
+              <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">8</cn>
+              <ci>mu</ci>
+              <ci>length</ci>
+            </apply>
+            <apply>
+              <times />
+              <pi />
+              <apply>
+                <power />
+                <ci>r</ci>
+                <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">4</cn>
+              </apply>
+            </apply>
+          </apply>
+          <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">2</cn>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>Rt</ci>
+        <ci>R</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>Rd</ci>
+        <apply>
+          <divide />
+          <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="second">0.01</cn>
+          <ci>C</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>u_R</ci>
+        <apply>
+          <times />
+          <ci>R</ci>
+          <ci>v_I</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <apply>
+          <diff />
+          <bvar>
+            <ci>t</ci>
+          </bvar>
+          <ci>v_I</ci>
+        </apply>
+        <apply>
+          <divide />
+          <apply>
+            <minus />
+            <apply>
+              <minus />
+              <ci>u_in</ci>
+              <ci>u</ci>
+            </apply>
+            <ci>u_R</ci>
+          </apply>
+          <ci>I</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <apply>
+          <diff />
+          <bvar>
+            <ci>t</ci>
+          </bvar>
+          <ci>u_C</ci>
+        </apply>
+        <apply>
+          <divide />
+          <apply>
+            <minus />
+            <ci>v_I</ci>
+            <ci>v_It</ci>
+          </apply>
+          <ci>C</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>u</ci>
+        <apply>
+          <plus />
+          <ci>u_C</ci>
+          <apply>
+            <times />
+            <ci>Rd</ci>
+            <apply>
+              <minus />
+              <ci>v_I</ci>
+              <ci>v_It</ci>
+            </apply>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>u_Rt</ci>
+        <apply>
+          <times />
+          <ci>Rt</ci>
+          <ci>v_It</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <apply>
+          <diff />
+          <bvar>
+            <ci>t</ci>
+          </bvar>
+          <ci>v_It</ci>
+        </apply>
+        <apply>
+          <divide />
+          <apply>
+            <minus />
+            <apply>
+              <minus />
+              <ci>u</ci>
+              <ci>u_Rt</ci>
+            </apply>
+            <ci>u_out</ci>
+          </apply>
+          <ci>It</ci>
+        </apply>
+      </apply>
+    </math>
+  </component>
+  <component name="block8" />
+  <component name="RightSubclavian" />
+  <component name="Right_subclavian">
+    <variable cmeta:id="Right_subclavian.t" name="t" public_interface="in" units="second" />
+    <variable cmeta:id="Right_subclavian.mu" initial_value="0.004" name="mu" units="J_s_per_m3" />
+    <variable cmeta:id="Right_subclavian.rho" initial_value="1050" name="rho" units="J_s2_per_m5" />
+    <variable cmeta:id="Right_subclavian.E" initial_value="0.6e+6" name="E" units="J_per_m3" />
+    <variable cmeta:id="Right_subclavian.length" initial_value="45.94e-03" name="length" units="metre" />
+    <variable cmeta:id="Right_subclavian.h" name="h" units="metre" />
+    <variable cmeta:id="Right_subclavian.r" initial_value="1.28e-03" name="r" units="metre" />
+    <variable cmeta:id="Right_subclavian.I" name="I" units="J_s2_per_m6" />
+    <variable cmeta:id="Right_subclavian.It" name="It" units="J_s2_per_m6" />
+    <variable cmeta:id="Right_subclavian.C" name="C" units="m6_per_J" />
+    <variable cmeta:id="Right_subclavian.R" name="R" units="J_s_per_m6" />
+    <variable cmeta:id="Right_subclavian.Rd" name="Rd" units="J_s_per_m6" />
+    <variable cmeta:id="Right_subclavian.Rt" name="Rt" units="J_s_per_m6" />
+    <variable cmeta:id="Right_subclavian.a" initial_value="0.2802" name="a" units="dimensionless" />
+    <variable cmeta:id="Right_subclavian.b" initial_value="-505.3" name="b" units="per_m" />
+    <variable cmeta:id="Right_subclavian.c" initial_value="0.1324" name="c" units="dimensionless" />
+    <variable cmeta:id="Right_subclavian.d" initial_value="-11.14" name="d" units="per_m" />
+    <variable cmeta:id="Right_subclavian.u_in" name="u_in" public_interface="in" units="J_per_m3" />
+    <variable cmeta:id="Right_subclavian.u_Rt" name="u_Rt" units="J_per_m3" />
+    <variable cmeta:id="Right_subclavian.v_I" initial_value="0.0" name="v_I" units="m3_per_s" />
+    <variable cmeta:id="Right_subclavian.u" name="u" units="J_per_m3" />
+    <variable cmeta:id="Right_subclavian.u_C" initial_value="0.0" name="u_C" units="J_per_m3" />
+    <variable cmeta:id="Right_subclavian.u_R" name="u_R" units="J_per_m3" />
+    <variable cmeta:id="Right_subclavian.v_It" initial_value="0.0" name="v_It" units="m3_per_s" />
+    <variable cmeta:id="Right_subclavian.u_out" initial_value="0.0" name="u_out" units="J_per_m3" />
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <apply>
+        <eq />
+        <ci>h</ci>
+        <apply>
+          <times />
+          <ci>r</ci>
+          <apply>
+            <plus />
+            <apply>
+              <times />
+              <ci>a</ci>
+              <apply>
+                <exp />
+                <apply>
+                  <times />
+                  <ci>b</ci>
+                  <ci>r</ci>
+                </apply>
+              </apply>
+            </apply>
+            <apply>
+              <times />
+              <ci>c</ci>
+              <apply>
+                <exp />
+                <apply>
+                  <times />
+                  <ci>d</ci>
+                  <ci>r</ci>
+                </apply>
+              </apply>
+            </apply>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>I</ci>
+        <apply>
+          <divide />
+          <apply>
+            <divide />
+            <apply>
+              <times />
+              <ci>rho</ci>
+              <ci>length</ci>
+            </apply>
+            <apply>
+              <times />
+              <pi />
+              <apply>
+                <power />
+                <ci>r</ci>
+                <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">2</cn>
+              </apply>
+            </apply>
+          </apply>
+          <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">2</cn>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>It</ci>
+        <ci>I</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>C</ci>
+        <apply>
+          <divide />
+          <apply>
+            <times />
+            <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">2</cn>
+            <pi />
+            <apply>
+              <power />
+              <ci>r</ci>
+              <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">3</cn>
+            </apply>
+            <ci>length</ci>
+          </apply>
+          <apply>
+            <times />
+            <ci>E</ci>
+            <ci>h</ci>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>R</ci>
+        <apply>
+          <divide />
+          <apply>
+            <divide />
+            <apply>
+              <times />
+              <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">8</cn>
+              <ci>mu</ci>
+              <ci>length</ci>
+            </apply>
+            <apply>
+              <times />
+              <pi />
+              <apply>
+                <power />
+                <ci>r</ci>
+                <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">4</cn>
+              </apply>
+            </apply>
+          </apply>
+          <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="dimensionless">2</cn>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>Rt</ci>
+        <ci>R</ci>
+      </apply>
+      <apply>
+        <eq />
+        <ci>Rd</ci>
+        <apply>
+          <divide />
+          <cn xmlns:cellml="http://www.cellml.org/cellml/1.1#" cellml:units="second">0.01</cn>
+          <ci>C</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>u_R</ci>
+        <apply>
+          <times />
+          <ci>R</ci>
+          <ci>v_I</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <apply>
+          <diff />
+          <bvar>
+            <ci>t</ci>
+          </bvar>
+          <ci>v_I</ci>
+        </apply>
+        <apply>
+          <divide />
+          <apply>
+            <minus />
+            <apply>
+              <minus />
+              <ci>u_in</ci>
+              <ci>u</ci>
+            </apply>
+            <ci>u_R</ci>
+          </apply>
+          <ci>I</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <apply>
+          <diff />
+          <bvar>
+            <ci>t</ci>
+          </bvar>
+          <ci>u_C</ci>
+        </apply>
+        <apply>
+          <divide />
+          <apply>
+            <minus />
+            <ci>v_I</ci>
+            <ci>v_It</ci>
+          </apply>
+          <ci>C</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>u</ci>
+        <apply>
+          <plus />
+          <ci>u_C</ci>
+          <apply>
+            <times />
+            <ci>Rd</ci>
+            <apply>
+              <minus />
+              <ci>v_I</ci>
+              <ci>v_It</ci>
+            </apply>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <ci>u_Rt</ci>
+        <apply>
+          <times />
+          <ci>Rt</ci>
+          <ci>v_It</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq />
+        <apply>
+          <diff />
+          <bvar>
+            <ci>t</ci>
+          </bvar>
+          <ci>v_It</ci>
+        </apply>
+        <apply>
+          <divide />
+          <apply>
+            <minus />
+            <apply>
+              <minus />
+              <ci>u</ci>
+              <ci>u_Rt</ci>
+            </apply>
+            <ci>u_out</ci>
+          </apply>
+          <ci>It</ci>
+        </apply>
+      </apply>
+    </math>
+  </component>
+  <group>
+    <relationship_ref relationship="encapsulation" />
+    <component_ref component="RightSubclavian">
+      <component_ref component="Right_subclavian" />
+    </component_ref>
+    <component_ref component="block8">
+      <component_ref component="RightCarotid">
+        <component_ref component="Right_common_carotid" />
+      </component_ref>
+      <component_ref component="block7">
+        <component_ref component="block6">
+          <component_ref component="block5">
+            <component_ref component="Left_subclavian">
+              <component_ref component="LeftSubclavian" />
+            </component_ref>
+            <component_ref component="block4">
+              <component_ref component="Arch_II">
+                <component_ref component="ArchII" />
+              </component_ref>
+              <component_ref component="block3">
+                <component_ref component="block2">
+                  <component_ref component="Arch_I">
+                    <component_ref component="ArchI" />
+                  </component_ref>
+                  <component_ref component="block1">
+                    <component_ref component="Aortic_root">
+                      <component_ref component="AorticRoot" />
+                    </component_ref>
+                    <component_ref component="AscendingAorta">
+                      <component_ref component="Ascending" />
+                    </component_ref>
+                  </component_ref>
+                </component_ref>
+                <component_ref component="Left_common_carotid">
+                  <component_ref component="LeftCarotid" />
+                </component_ref>
+              </component_ref>
+            </component_ref>
+          </component_ref>
+          <component_ref component="Descending_Aorta">
+            <component_ref component="Descending" />
+          </component_ref>
+        </component_ref>
+        <component_ref component="Brachiocephalic_artery">
+          <component_ref component="Brachiocephalic" />
+        </component_ref>
+      </component_ref>
+    </component_ref>
+  </group>
+  <connection>
+    <map_components component_1="AorticRoot" component_2="Ascending" />
+    <map_variables variable_1="t" variable_2="t" />
+    <map_variables variable_1="u" variable_2="u_in" />
+  </connection>
+  <connection>
+    <map_components component_1="ArchII" component_2="ArchI" />
+    <map_variables variable_1="v_I" variable_2="v_out_2" />
+  </connection>
+  <connection>
+    <map_components component_1="Ascending" component_2="Brachiocephalic" />
+    <map_variables variable_1="u" variable_2="u_in" />
+  </connection>
+  <connection>
+    <map_components component_1="AorticRoot" component_2="Descending" />
+    <map_variables variable_1="t" variable_2="t" />
+  </connection>
+  <connection>
+    <map_components component_1="Ascending" component_2="AorticRoot" />
+    <map_variables variable_1="v_I" variable_2="v_out" />
+  </connection>
+  <connection>
+    <map_components component_1="LeftCarotid" component_2="ArchI" />
+    <map_variables variable_1="v_I" variable_2="v_out_1" />
+  </connection>
+  <connection>
+    <map_components component_1="ArchI" component_2="Ascending" />
+    <map_variables variable_1="v_I" variable_2="v_out_1" />
+  </connection>
+  <connection>
+    <map_components component_1="ArchII" component_2="Descending" />
+    <map_variables variable_1="u" variable_2="u_in" />
+  </connection>
+  <connection>
+    <map_components component_1="Descending" component_2="ArchII" />
+    <map_variables variable_1="v_I" variable_2="v_out_2" />
+  </connection>
+  <connection>
+    <map_components component_1="AorticRoot" component_2="LeftCarotid" />
+    <map_variables variable_1="t" variable_2="t" />
+  </connection>
+  <connection>
+    <map_components component_1="Brachiocephalic" component_2="Right_common_carotid" />
+    <map_variables variable_1="u" variable_2="u_in" />
+  </connection>
+  <connection>
+    <map_components component_1="AorticRoot" component_2="Right_common_carotid" />
+    <map_variables variable_1="t" variable_2="t" />
+  </connection>
+  <connection>
+    <map_components component_1="Right_subclavian" component_2="Brachiocephalic" />
+    <map_variables variable_1="v_I" variable_2="v_out_2" />
+  </connection>
+  <connection>
+    <map_components component_1="Ascending" component_2="ArchI" />
+    <map_variables variable_1="u" variable_2="u_in" />
+  </connection>
+  <connection>
+    <map_components component_1="AorticRoot" component_2="LeftSubclavian" />
+    <map_variables variable_1="t" variable_2="t" />
+  </connection>
+  <connection>
+    <map_components component_1="ArchI" component_2="ArchII" />
+    <map_variables variable_1="u" variable_2="u_in" />
+  </connection>
+  <connection>
+    <map_components component_1="AorticRoot" component_2="Brachiocephalic" />
+    <map_variables variable_1="t" variable_2="t" />
+  </connection>
+  <connection>
+    <map_components component_1="Brachiocephalic" component_2="Right_subclavian" />
+    <map_variables variable_1="u" variable_2="u_in" />
+  </connection>
+  <connection>
+    <map_components component_1="ArchI" component_2="LeftCarotid" />
+    <map_variables variable_1="u" variable_2="u_in" />
+  </connection>
+  <connection>
+    <map_components component_1="ArchII" component_2="LeftSubclavian" />
+    <map_variables variable_1="u" variable_2="u_in" />
+  </connection>
+  <connection>
+    <map_components component_1="Brachiocephalic" component_2="Ascending" />
+    <map_variables variable_1="v_I" variable_2="v_out_2" />
+  </connection>
+  <connection>
+    <map_components component_1="AorticRoot" component_2="Right_subclavian" />
+    <map_variables variable_1="t" variable_2="t" />
+  </connection>
+  <connection>
+    <map_components component_1="Right_common_carotid" component_2="Brachiocephalic" />
+    <map_variables variable_1="v_I" variable_2="v_out_1" />
+  </connection>
+  <connection>
+    <map_components component_1="AorticRoot" component_2="ArchII" />
+    <map_variables variable_1="t" variable_2="t" />
+  </connection>
+  <connection>
+    <map_components component_1="AorticRoot" component_2="ArchI" />
+    <map_variables variable_1="t" variable_2="t" />
+  </connection>
+  <connection>
+    <map_components component_1="LeftSubclavian" component_2="ArchII" />
+    <map_variables variable_1="v_I" variable_2="v_out_1" />
+  </connection>
+  <rdf:RDF xmlns:bqmodel="http://biomodels.net/model-qualifiers/" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:ro="http://www.obofoundry.org/ro/ro.owl#" xmlns:opb="http://bhi.washington.edu/OPB#">
+    <rdf:Description rdf:about="#LeftSubclavian.t">
+      <bqbiol:is rdf:resource="https://identifiers.org/opb/OPB_01023" />
+    </rdf:Description>
+    <rdf:Description rdf:about="#Ascending.t">
+      <bqbiol:is rdf:resource="https://identifiers.org/opb/OPB_01023" />
+    </rdf:Description>
+    <rdf:Description rdf:about="#AorticRoot.t">
+      <bqbiol:is rdf:resource="https://identifiers.org/opb/OPB_01023" />
+    </rdf:Description>
+    <rdf:Description rdf:about="#Ascending.t">
+      <bqbiol:is rdf:resource="https://identifiers.org/opb/OPB_01023" />
+    </rdf:Description>
+    <rdf:Description rdf:about="#Descending.t">
+      <bqbiol:is rdf:resource="https://identifiers.org/opb/OPB_01023" />
+    </rdf:Description>
+    <rdf:Description rdf:about="#LeftCarotid.t">
+      <bqbiol:is rdf:resource="https://identifiers.org/opb/OPB_01023" />
+    </rdf:Description>
+    <rdf:Description rdf:about="#Descending.t">
+      <bqbiol:is rdf:resource="https://identifiers.org/opb/OPB_01023" />
+    </rdf:Description>
+    <rdf:Description rdf:about="#Right_common_carotid.t">
+      <bqbiol:is rdf:resource="https://identifiers.org/opb/OPB_01023" />
+    </rdf:Description>
+    <rdf:Description rdf:about="#ArchI.t">
+      <bqbiol:is rdf:resource="https://identifiers.org/opb/OPB_01023" />
+    </rdf:Description>
+    <rdf:Description rdf:about="#ArchI.t">
+      <bqbiol:is rdf:resource="https://identifiers.org/opb/OPB_01023" />
+    </rdf:Description>
+    <rdf:Description rdf:about="#AorticRoot.t">
+      <bqbiol:is rdf:resource="https://identifiers.org/opb/OPB_01023" />
+    </rdf:Description>
+    <rdf:Description rdf:about="#Right_subclavian.t">
+      <bqbiol:is rdf:resource="https://identifiers.org/opb/OPB_01023" />
+    </rdf:Description>
+    <rdf:Description rdf:about="#ArchII.t">
+      <bqbiol:is rdf:resource="https://identifiers.org/opb/OPB_01023" />
+    </rdf:Description>
+    <rdf:Description rdf:about="#Brachiocephalic.t">
+      <bqbiol:is rdf:resource="https://identifiers.org/opb/OPB_01023" />
+    </rdf:Description>
+    <rdf:Description rdf:about="#metaid0" semsim:modelName="model_0">
+      <semsim:modelName>Arch_II</semsim:modelName>
+    </rdf:Description>
+    <rdf:Description rdf:about="#ArchII.t">
+      <bqbiol:is rdf:resource="https://identifiers.org/opb/OPB_01023" />
+    </rdf:Description>
+    <rdf:Description rdf:about="#LeftSubclavian.t">
+      <bqbiol:is rdf:resource="https://identifiers.org/opb/OPB_01023" />
+    </rdf:Description>
+    <rdf:Description rdf:about="#LeftCarotid.t">
+      <bqbiol:is rdf:resource="https://identifiers.org/opb/OPB_01023" />
+    </rdf:Description>
+    <rdf:Description rdf:about="#Brachiocephalic.t">
+      <bqbiol:is rdf:resource="https://identifiers.org/opb/OPB_01023" />
+    </rdf:Description>
+    <rdf:Description rdf:about="#Right_common_carotid.t">
+      <bqbiol:is rdf:resource="https://identifiers.org/opb/OPB_01023" />
+    </rdf:Description>
+  </rdf:RDF>
+</model>
+
