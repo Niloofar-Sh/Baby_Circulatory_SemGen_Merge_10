@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<model name="Parameters" xmlns="http://www.cellml.org/cellml/1.1#" xmlns:cellml="http://www.cellml.org/cellml/1.1#">
+    <component name="Parameters_Heart">
+        <variable initial_value="1.0" name="T" public_interface="out" units="second"/>
+        <variable initial_value="34.6427e-6" name="CQ_trv" public_interface="out" units="UnitValve"/>
+        <variable initial_value="30.3124e-6" name="CQ_puv" public_interface="out" units="UnitValve"/>
+        <variable initial_value="34.6427e-6" name="CQ_miv" public_interface="out" units="UnitValve"/>
+        <variable initial_value="30.3124e-6" name="CQ_aov" public_interface="out" units="UnitValve"/>
+        <variable initial_value="12e+07" name="E_la_max" public_interface="out" units="J_per_m6"/>
+        <variable initial_value="120e+07" name="E_lv_max" public_interface="out" units="J_per_m6"/>
+        <variable initial_value="12e+07" name="E_ra_max" public_interface="out" units="J_per_m6"/>
+        <variable initial_value="120e+07" name="E_rv_max" public_interface="out" units="J_per_m6"/>
+        <variable initial_value="1.2e+07" name="E_la_min" public_interface="out" units="J_per_m6"/>
+        <variable initial_value="1.2e+07" name="E_lv_min" public_interface="out" units="J_per_m6"/>
+        <variable initial_value="1.2e+07" name="E_ra_min" public_interface="out" units="J_per_m6"/>
+        <variable initial_value="1.2e+07" name="E_rv_min" public_interface="out" units="J_per_m6"/>
+        <variable initial_value="24.0e-6" name="q_lv_0" public_interface="out" units="m3"/>
+        <variable initial_value="46.0e-6" name="q_rv_0" public_interface="out" units="m3"/>
+        <variable initial_value="12.0e-6" name="q_la_0" public_interface="out" units="m3"/>
+        <variable initial_value="23.0e-6" name="q_ra_0" public_interface="out" units="m3"/>
+        <variable initial_value="0.27" name="tau_1_lv" public_interface="out" units="dimensionless"/>
+        <variable initial_value="0.27" name="tau_1_rv" public_interface="out" units="dimensionless"/>
+        <variable initial_value="0.11" name="tau_1_la" public_interface="out" units="dimensionless"/>
+        <variable initial_value="0.11" name="tau_1_ra" public_interface="out" units="dimensionless"/>
+        <variable initial_value="0.45" name="tau_2_lv" public_interface="out" units="dimensionless"/>
+        <variable initial_value="0.45" name="tau_2_rv" public_interface="out" units="dimensionless"/>
+        <variable initial_value="0.18" name="tau_2_la" public_interface="out" units="dimensionless"/>
+        <variable initial_value="0.18" name="tau_2_ra" public_interface="out" units="dimensionless"/>
+        <variable initial_value="0.85" name="t_onset_a" public_interface="out" units="dimensionless"/>
+        <variable initial_value="3" name="m_1_lv" public_interface="out" units="dimensionless"/>
+        <variable initial_value="3" name="m_1_rv" public_interface="out" units="dimensionless"/>
+        <variable initial_value="3" name="m_1_la" public_interface="out" units="dimensionless"/>
+        <variable initial_value="3" name="m_1_ra" public_interface="out" units="dimensionless"/>
+        <variable initial_value="27" name="m_2_lv" public_interface="out" units="dimensionless"/>
+        <variable initial_value="27" name="m_2_rv" public_interface="out" units="dimensionless"/>
+        <variable initial_value="27" name="m_2_la" public_interface="out" units="dimensionless"/>
+        <variable initial_value="27" name="m_2_ra" public_interface="out" units="dimensionless"/>
+    </component>
+    <component name="Parameters_Systemic">
+        <!--//////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////// Vessel_Radius ////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////-->
+        <variable initial_value="6.43e-03" name="r_aortic_root" public_interface="out" units="metre"/>
+        <variable initial_value="5.03e-03" name="r_ascending_aorta" public_interface="out" units="metre"/>
+        <variable initial_value="3.56e-03" name="r_aortic_arch_I" public_interface="out" units="metre"/>
+        <variable initial_value="3.56e-03" name="r_aortic_arch_II" public_interface="out" units="metre"/>
+        <variable initial_value="2.75e-03" name="r_brachiocephalic" public_interface="out" units="metre"/>
+        <variable initial_value="2.89e-03" name="r_descending_aorta" public_interface="out" units="metre"/>
+        <variable initial_value="1.57e-03" name="r_right_common_carotid" public_interface="out" units="metre"/>
+        <variable initial_value="1.71e-03" name="r_left_common_carotid" public_interface="out" units="metre"/>
+        <variable initial_value="1.28e-03" name="r_right_subclavian" public_interface="out" units="metre"/>
+        <variable initial_value="1.35e-03" name="r_left_subclavian" public_interface="out" units="metre"/>
+        <!--//////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////// Vessel_Length ////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////-->
+        <variable initial_value="12.0e-03" name="l_aortic_root" public_interface="out" units="metre"/>
+        <variable initial_value="12.33e-03" name="l_ascending_aorta" public_interface="out" units="metre"/>
+        <variable initial_value="7.785e-03" name="l_aortic_arch_I" public_interface="out" units="metre"/>
+        <variable initial_value="7.785e-03" name="l_aortic_arch_II" public_interface="out" units="metre"/>
+        <variable initial_value="15.74e-03" name="l_brachiocephalic" public_interface="out" units="metre"/>
+        <variable initial_value="101.93e-03" name="l_descending_aorta" public_interface="out" units="metre"/>
+        <variable initial_value="32.09e-03" name="l_right_common_carotid" public_interface="out" units="metre"/>
+        <variable initial_value="45.03e-03" name="l_left_common_carotid" public_interface="out" units="metre"/>
+        <variable initial_value="45.94e-03" name="l_right_subclavian" public_interface="out" units="metre"/>
+        <variable initial_value="57.79e-03" name="l_left_subclavian" public_interface="out" units="metre"/>
+        <!--//////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////// Vessel_Young_Modulus /////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////-->
+        <variable initial_value="0.6e+06" name="E_aortic_root" public_interface="out" units="J_per_m3"/>
+        <variable initial_value="0.6e+06" name="E_ascending_aorta" public_interface="out" units="J_per_m3"/>
+        <variable initial_value="0.6e+06" name="E_aortic_arch_I" public_interface="out" units="J_per_m3"/>
+        <variable initial_value="0.6e+06" name="E_aortic_arch_II" public_interface="out" units="J_per_m3"/>
+        <variable initial_value="0.6e+06" name="E_brachiocephalic" public_interface="out" units="J_per_m3"/>
+        <variable initial_value="0.6e+06" name="E_descending_aorta" public_interface="out" units="J_per_m3"/>
+        <variable initial_value="0.6e+06" name="E_right_common_carotid" public_interface="out" units="J_per_m3"/>
+        <variable initial_value="0.6e+06" name="E_left_common_carotid" public_interface="out" units="J_per_m3"/>
+        <variable initial_value="0.6e+06" name="E_right_subclavian" public_interface="out" units="J_per_m3"/>
+        <variable initial_value="0.6e+06" name="E_left_subclavian" public_interface="out" units="J_per_m3"/>
+        <!--//////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////// Vessel_Terminal_Resistance //////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////-->
+        <variable initial_value="13.1e+6" name="R_T_descending_aorta" public_interface="out" units="Js_per_m6"/>
+        <variable initial_value="59.8e+06" name="R_T_left_subclavian" public_interface="out" units="Js_per_m6"/>
+        <variable initial_value="159e+06" name="R_T_left_common_carotid" public_interface="out" units="Js_per_m6"/>
+        <variable initial_value="14.2e+06" name="R_T_right_subclavian" public_interface="out" units="Js_per_m6"/>
+        <variable initial_value="14.2e+06" name="R_T_right_common_carotid" public_interface="out" units="Js_per_m6"/>
+        <variable initial_value="222e+6" name="R_T_2_descending_aorta" public_interface="out" units="Js_per_m6"/>
+        <variable initial_value="1570e+06" name="R_T_2_left_subclavian" public_interface="out" units="Js_per_m6"/>
+        <variable initial_value="1410e+06" name="R_T_2_left_common_carotid" public_interface="out" units="Js_per_m6"/>
+        <variable initial_value="597e+06" name="R_T_2_right_subclavian" public_interface="out" units="Js_per_m6"/>
+        <variable initial_value="597e+06" name="R_T_2_right_common_carotid" public_interface="out" units="Js_per_m6"/>
+        <!--//////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////// Vessel_Terminal_Compliance //////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////-->
+        <variable initial_value="1.61e-08" name="C_T_descending_aorta" public_interface="out" units="m6_per_J"/>
+        <variable initial_value="2.11e-09" name="C_T_left_subclavian" public_interface="out" units="m6_per_J"/>
+        <variable initial_value="1.6e-09" name="C_T_left_common_carotid" public_interface="out" units="m6_per_J"/>
+        <variable initial_value="3.45e-09" name="C_T_right_subclavian" public_interface="out" units="m6_per_J"/>
+        <variable initial_value="3.45e-09" name="C_T_right_common_carotid" public_interface="out" units="m6_per_J"/>
+    </component>
+</model>
